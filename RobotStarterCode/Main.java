@@ -5,7 +5,7 @@ import kareltherobot.*;
 
 public class Main implements Directions {
   public static void main(String[] args) 
-	{
+	{ 
 		//My robot's name is karel
     Robot karel = new Robot(5,1,South,-1);
     World.setVisible(true);
