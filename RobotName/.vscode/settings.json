@@ -1,7 +1,9 @@
 {
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "jars/KarelJRobot.jar"
+        "/home/lucas/Documents/APcs/RobotName/jars/KarelJRobot.jar"
     ],
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "java.project.sourcePaths": [
+        "."
+    ]
 }
