@@ -7,85 +7,85 @@ public class Main implements Directions {
   public static void main(String[] args) 
 	{ 
 		//My robot's name is karel
-    Robot karel = new Robot(5,1,South,-1);
+    Robot l = new Robot(5,1,South,-1);
+    Robot u = new Robot(1,5,East,-1);
+    Robot c = new Robot(5,10,East,-1);
+    Robot a = new Robot(1,15,East,-1);
+    Robot s = new Robot(1,20,East,-1);
     World.setVisible(true);
     World.setSize(6,23);
-    World.setDelay(0);
+    World.setDelay(20);
 
-    karel.putBeeper();
-    move(karel, 4, true);
-    karel.turnLeft();
-    move(karel, 2, true);
-    move(karel, 2, false);
-    karel.turnLeft();
-    karel.putBeeper();
-    move(karel, 4, true);
-    karel.turnLeft();
-    karel.turnLeft();
-    move(karel, 4, false);
-    karel.turnLeft();
-    karel.putBeeper();
-    move(karel, 3, true);
-    karel.turnLeft();
-    move(karel, 4, true);
+    //l
 
-    turnRight(karel);
-    move(karel, 2, false);
+    l.putBeeper();
+    move(l, 4, true);
+    l.turnLeft();
+    move(l, 2, true);
+
+
+    //u
+
+    u.turnLeft();
+    u.putBeeper();
+    move(u, 4, true);
+    u.turnLeft();
+    u.turnLeft();
+    move(u, 4, false);
+    u.turnLeft();
+    move(u, 3, true);
+    u.turnLeft();
+    move(u, 4, true);
+
     
-
-    karel.putBeeper();
-    move(karel, 3, true);
-
-    karel.turnLeft();
-    karel.turnLeft();
-    move(karel, 3, false);
-    karel.turnLeft();
     
-    move(karel, 4, true);
-    karel.turnLeft();
-    move(karel, 3, true);
+    //c
+    c.putBeeper();
+    move(c, 3, true);
 
-    move(karel, 2, false);
-    karel.putBeeper();
+    c.turnLeft();
+    c.turnLeft();
+    move(c, 3, false);
+    c.turnLeft();
     
-    karel.turnLeft();
-    move(karel, 3, true);
-    karel.move();
-    turnRight(karel);
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    turnRight(karel);
-    
-    move(karel, 4, true);
-    karel.turnLeft();
-    karel.turnLeft();
-    move(karel, 2, false);
-    karel.turnLeft();
-    move(karel, 2, true);
-    karel.turnLeft();
-    karel.turnLeft();
-    move(karel, 2, false);
-    turnRight(karel);
-    karel.move();
-    karel.move();
-    karel.turnLeft();
+    move(c, 4, true);
+    c.turnLeft();
+    move(c, 3, true);
 
-    move(karel, 2, false);
-    karel.putBeeper();
-    move(karel, 2, true);
-    karel.turnLeft();
-    move(karel, 2, true);
-    karel.turnLeft();
-    move(karel, 2, true);
-    turnRight(karel);
-    move(karel, 2, true);
-    turnRight(karel);
-    move(karel, 2, true);
+    //a
+    a.putBeeper();
     
-    karel.move();
+    a.turnLeft();
+    move(a, 3, true);
+    a.move();
+    turnRight(a);
+    a.move();
+    a.putBeeper();
+    a.move();
+    a.putBeeper();
+    a.move();
+    turnRight(a);
+    
+    move(a, 4, true);
+    a.turnLeft();
+    a.turnLeft();
+    move(a, 2, false);
+    a.turnLeft();
+    move(a, 2, true);
+
+    //s
+    s.putBeeper();
+    move(s, 2, true);
+    s.turnLeft();
+    move(s, 2, true);
+    s.turnLeft();
+    move(s, 2, true);
+    turnRight(s);
+    move(s, 2, true);
+    turnRight(s);
+    move(s, 2, true);
+    
+    s.move();
   }
 
   static void turnRight(Robot karel){
