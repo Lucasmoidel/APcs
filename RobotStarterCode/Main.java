@@ -9,7 +9,7 @@ public class Main implements Directions {
 		//My robot's name is karel
     Robot karel = new Robot(5,1,South,-1);
     World.setVisible(true);
-    World.setSize(7,50);
+    World.setSize(6,23);
     World.setDelay(0);
 
     karel.putBeeper();
@@ -47,28 +47,31 @@ public class Main implements Directions {
 
     move(karel, 2, false);
     karel.putBeeper();
-    for (int i = 0;i<2;i++){
-      
-      karel.move();
-      karel.turnLeft();
-      karel.move();
-      karel.move();
-      karel.putBeeper();
-      turnRight(karel);
-    }
+    
+    karel.turnLeft();
+    move(karel, 3, true);
+    karel.move();
+    turnRight(karel);
+    karel.move();
+    karel.putBeeper();
+    karel.move();
+    karel.putBeeper();
+    karel.move();
+    turnRight(karel);
+    
+    move(karel, 4, true);
+    karel.turnLeft();
+    karel.turnLeft();
+    move(karel, 2, false);
+    karel.turnLeft();
+    move(karel, 2, true);
+    karel.turnLeft();
+    karel.turnLeft();
+    move(karel, 2, false);
     turnRight(karel);
     karel.move();
     karel.move();
-    karel.putBeeper();
     karel.turnLeft();
-    karel.move();
-    karel.putBeeper();
-    turnRight(karel);
-    karel.move();
-    karel.move();
-    karel.turnLeft();
-    karel.move();
-    karel.putBeeper();
 
     move(karel, 2, false);
     karel.putBeeper();
@@ -81,6 +84,8 @@ public class Main implements Directions {
     move(karel, 2, true);
     turnRight(karel);
     move(karel, 2, true);
+    
+    karel.move();
   }
 
   static void turnRight(Robot karel){
