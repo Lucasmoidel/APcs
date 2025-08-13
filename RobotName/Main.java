@@ -29,7 +29,7 @@ public class Main implements Directions {
     karel.turnLeft();
     move(karel, 4, true);
 
-    turnRight(karel); 
+    turnRight(karel);
     move(karel, 2, false);
     
 
