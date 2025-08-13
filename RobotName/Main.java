@@ -16,30 +16,29 @@ public class Main implements Directions {
     World.setSize(6,23);
     World.setDelay(20);
 
-    //l
 
-    l.putBeeper();
-    move(l, 4, true);
-    l.turnLeft();
-    move(l, 2, true);
+    Thread lThread = new Thread(() -> {
+        l.putBeeper();
+        move(l, 4, true);
+        l.turnLeft();
+        move(l, 2, true);
+    });
+
+    Thread uThread = new Thread(() -> {
+      u.turnLeft();
+      u.putBeeper();
+      move(u, 4, true);
+      u.turnLeft();
+      u.turnLeft();
+      move(u, 4, false);
+      u.turnLeft();
+      move(u, 3, true);
+      u.turnLeft();
+      move(u, 4, true);
+    });
 
 
-    //u
-
-    u.turnLeft();
-    u.putBeeper();
-    move(u, 4, true);
-    u.turnLeft();
-    u.turnLeft();
-    move(u, 4, false);
-    u.turnLeft();
-    move(u, 3, true);
-    u.turnLeft();
-    move(u, 4, true);
-
-    
-    
-    //c
+    Thread cThread = new Thread(() -> {
     c.putBeeper();
     move(c, 3, true);
 
@@ -51,8 +50,10 @@ public class Main implements Directions {
     move(c, 4, true);
     c.turnLeft();
     move(c, 3, true);
+    });
 
-    //a
+
+    Thread aThread = new Thread(() -> {
     a.putBeeper();
     
     a.turnLeft();
@@ -72,8 +73,9 @@ public class Main implements Directions {
     move(a, 2, false);
     a.turnLeft();
     move(a, 2, true);
-
-    //s
+    });
+    
+    Thread sThread = new Thread(() -> {
     s.putBeeper();
     move(s, 2, true);
     s.turnLeft();
@@ -86,6 +88,19 @@ public class Main implements Directions {
     move(s, 2, true);
     
     s.move();
+    });
+
+
+    lThread.start();
+    uThread.start();
+    cThread.start();
+    aThread.start();
+    sThread.start();
+    //a
+
+
+    //s
+
   }
 
   static void turnRight(Robot karel){
