@@ -32,7 +32,7 @@ public class Main implements Directions {
     Robot fred = new Robot(1, length+1, North, -1);
     World.setVisible(true);
     World.setSize(length*2+1, length*2+1);
-    World.setDelay(1);
+    World.setDelay(1); 
     
     
     diag(fred, North, length);
