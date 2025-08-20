@@ -28,11 +28,11 @@ public class Main implements Directions {
     }
   }
   public static void main(String[] args) {
-    int length = 50;
+    int length = 18;
     Robot fred = new Robot(1, length+1, North, -1);
     World.setVisible(true);
     World.setSize(length*2+1, length*2+1);
-    World.setDelay(2);
+    World.setDelay(1);
     
     
     diag(fred, North, length);
