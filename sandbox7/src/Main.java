@@ -5,7 +5,7 @@ public class Main {
     // numOccur("happy", "A");
 
     // #2: returns the number of occurrences of word, which may have many characters
-    // System.out.println(numOccurs("happy to be with the two of you too", "to"));
+    System.out.println(numOccurs("happy to be with the two of you too", "to"));
     // System.out.println(numOccurs("happy to be with the two of you too", "th"));
     // System.out.println(numOccurs("happy to be with the two of you too", "o"));
     // System.out.println(numOccurs("happy to be with the two of you too", "Happy"));
@@ -41,7 +41,7 @@ public class Main {
     // #2
     public static int numOccurs(String str, String word){
         int x = 0;
-        for (int i = 0; i<str.length()-word.length()+1; i++){
+        for (int i = 0; i<str.length()-word.length(); i++){
             System.out.println(str.substring(i, i+word.length()));
             if(str.substring(i, i+word.length()).equals(word)){   
                 x++;
