@@ -8,7 +8,8 @@ public class JumpThoseHurdles {
                                                     //  location of this line of code?
     int w = 0; //This creates a variable to save your width
     int h = 0; //This creates a variable to save your height.
-   
+    int largestW = 0;
+    int largestH = 0;
     public static void main(String[] args) {
         new JumpThoseHurdles().start();
     }
@@ -17,12 +18,16 @@ public class JumpThoseHurdles {
         loadWorld();
        
 
+        for(int x = 0;x<4; x++){
+            w = findHurdle(); //Discuss with your partner what this line of code is intended to do.
+            h = climbHurdle();
+            clearHurdle();
+            if (h > largestH){
+                largestH = h;
+            }
+        }
+        System.out.println(largestH);
 
-        w = findHurdle(); //Discuss with your partner what this line of code is intended to do.
-        h = climbHurdle();
- 
-        
-        clearHurdle();
        
     }
 
@@ -34,7 +39,7 @@ public class JumpThoseHurdles {
      */
     private int findHurdle() {
         int x = 0;
-        while (hurdler.frontIsClear()){
+        while (hurdler.frontIsClear() && hurdler.avenue() < 25 && hurdler.street() < 25){
             hurdler.move();
             x++;
         }
