@@ -5,11 +5,9 @@ public class JumpThoseHurdles {
   // This is the Robot we will use to jump the hurdles
  
     Robot hurdler = new Robot(1,1,Directions.East, 0); // What is different about the
-                                                    //  location of this line of code?
-    int w = 0; //This creates a variable to save your width
-    int h = 0; //This creates a variable to save your height.
-    int largestW = 0;
-    int largestH = 0;
+    int numburdles = 3;                                    //  location of this line of code?
+    int[] w = new int[numburdles]; //This creates a variable to save your width
+    int[] h = new int[numburdles]; //This creates a variable to save your height.
     public static void main(String[] args) {
         new JumpThoseHurdles().start();
     }
@@ -18,15 +16,12 @@ public class JumpThoseHurdles {
         loadWorld();
        
 
-        for(int x = 0;x<4; x++){
-            w = findHurdle(); //Discuss with your partner what this line of code is intended to do.
-            h = climbHurdle();
-            clearHurdle();
-            if (h > largestH){
-                largestH = h;
-            }
+        for(int x = 0;x<numburdles; x++){
+            w[x] = findHurdle(); //Discuss with your partner what this line of code is intended to do.
+            h[x] = climbHurdle();
+            clearHurdle(h[x]);
         }
-        System.out.println(largestH);
+        System.out.println();
 
        
     }
@@ -39,7 +34,7 @@ public class JumpThoseHurdles {
      */
     private int findHurdle() {
         int x = 0;
-        while (hurdler.frontIsClear() && hurdler.avenue() < 25 && hurdler.street() < 25){
+        while (hurdler.frontIsClear()){
             hurdler.move();
             x++;
         }
@@ -71,11 +66,11 @@ public class JumpThoseHurdles {
      * Moves the Robot (hurdler) over the wall and moves it to the ground so
      * that the Robot has its back to the hurdle and is facing the next one.
      */
-    private void clearHurdle() {
+    private void clearHurdle(int hurdleheight) {
        hurdler.move();
        hurdler.move();
        turnRight();
-       for (int i = 0; i<h; i++){
+       for (int i = 0; i<hurdleheight; i++){
         hurdler.move();
        }
        hurdler.turnLeft();
