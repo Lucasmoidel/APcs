@@ -1,19 +1,38 @@
+import java.util.Scanner;
 public class App {
     public static void main(String[] args){
-        String[] names = new String[5];
-        names[0] = "asfiqwmn";
-        names[1] = "sadfk;q";
-        names[2] = "dfrew";
-        names[3] = "asdasd";
-        names[4] = "yes";
-        System.out.println(affermative(names));
-
-    }
-    public static String affermative(String[] s){
-        String string = "";
-        for (int i =0;i<s.length;i++){
-            string+=s[i].substring(0, 2);
+        for (int  i = 0; i < 20; i++){
+            System.out.println((int)(Math.random()*22));
         }
-        return string;
+    }
+    public static String names(String[] names){
+        String str = "";
+        for (int i = 0; i<names.length-1; i++){
+            while (names[i]!=null){
+                str+= names[i] + " and ";
+            }
+        }
+        while (names[names.length-1]!=null){
+            str+=names[names.length-1];
+        }
+        return str;
+    }
+    public static int ints(int[] nums){
+        int largest = 0;
+        for (int i = 0; i < nums.length;i++){
+            if (nums[i] > largest){
+                nums[i] = largest;
+            }
+        }
+        return largest-2;
+    }
+    public static String words(String[] words){
+        String str = "";
+        for (int i = 0; i<words.length; i++){
+            if (words[i].contains("b")){
+                str+= words[i] + " ";
+            }
+        }
+        return str;
     }
 }
