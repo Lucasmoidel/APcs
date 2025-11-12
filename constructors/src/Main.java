@@ -1,16 +1,18 @@
 public class Main {
     public static void main(String[] args){
-        Lego bob = new Lego("bob", "amateur radio", true, 5);
-        Lego picard = new Lego("Jean Luc Picard", 78, "star ship captain");
-        alien greg = new alien("greg", 9999, "construction worker", "Mars");
-
-        Lego[] box = new Lego[3];
-        box[0] = bob;
-        box[1] = picard;
-        box[2] = (Lego)greg;
-        for (int  i = 0;i< box.length;i++){
-            if (box[i]!=null){
-                box[i].whoAreYou();
+        Lego greg = new Lego("greg", "amateur radio", true, 5);
+        Lego picard = new Lego("Jean Luc Picard", "fenceing", false, 99);
+        Lego[] legos = {greg, picard};
+        for (int i =  0;i < legos.length;i++){
+            legos[i].whoAreYou();
+        }
+        getMoreInfo(legos);
+    }
+    
+    public static void getMoreInfo(Lego[] legos){
+        for (int i = 0; i < legos.length;i++){
+            if (legos[i].getHobby()!= null){
+                System.out.println(legos[i].getHobby());
             }
         }
     }

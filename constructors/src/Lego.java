@@ -19,9 +19,27 @@ public class Lego{
         this.family = family;
         this.height = height;
     }
-
+    
     public void whoAreYou(){
-        System.out.println("My name is " + name + ", I am " + age + ", and I am a " + job + ".\n");
+        System.out.println("My name is " + name + ", I am " + age  + ", and I am a " + job + ".\n");
+    }
+
+    public String getName(){
+        return name;
+    }
+    public String getHobby(){
+        return hobby;
+    }
+    public boolean getFamily(){
+        return family;
+    }
+    public int getHeight(){
+        return height;
+    } 
+
+    public int setHeight(int height){
+        this.height = height;
+        return height;
     }
 
 }
