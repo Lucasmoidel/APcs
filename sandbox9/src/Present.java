@@ -1,12 +1,12 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-public static ArrayList<Present> Sam;
 
 public class Present {
     private String type;
     private double size;
     private double weight;
     private boolean wrapped;
+    private static ArrayList<Present> Sam = new ArrayList<>();
 
     public Present(String type, double size, double weight, boolean wrapped){
         this.type = type;
@@ -31,6 +31,7 @@ public class Present {
         this.wrapped = wrapped;
     }
     public static void main(String[] args){
-     Sam.add(new Present("lego", 12, 5, true));   
+        Present present1 = new Present("lego", 12, 5, true);
+        Sam.add(present1);   
     }
 }
