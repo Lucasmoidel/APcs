@@ -18,4 +18,7 @@ public class toy{
     public boolean getblackfriday(){
         return this.blackfriday;
     }
+    public void setblackfriday(boolean blackfriday){
+        this.blackfriday = blackfriday;
+    }
 }
