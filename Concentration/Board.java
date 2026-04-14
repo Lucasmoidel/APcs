@@ -30,8 +30,8 @@ public class Board
    
     for (int i = 0; i < (gameboard.length * gameboard[0].length); i++){
       while(gameboard[x][y] != null){
-    y = (int)(Math.random() * 4);
-    x = (int)(Math.random() * 3);
+        y = (int)(Math.random() * 4);
+        x = (int)(Math.random() * 3);
       }
 
       gameboard[x][y] = new Tile(tileValues[i]);
@@ -58,7 +58,7 @@ public class Board
         if (gameboard[r][c].isShowingValue()){
           str += "| " + gameboard[r][c].getValue()  + " |";
         } else{
-          str += "| " + "_____"  + " |";
+          str += "| " + gameboard[r][c].getHidden()  + " |";
         }
 
       }
@@ -78,7 +78,13 @@ public class Board
   public boolean allTilesMatch()
   {
 
-    /* your code  here */
+    for (int r = 0; r < gameboard.length; r++){
+      for (int c = 0; c < gameboard[r].length; c++){
+        if (!gameboard[r][c].isShowingValue()){
+          return false;
+        }
+      }
+    }
     
     return true;
   }
@@ -97,7 +103,7 @@ public class Board
   public void showValue (int row, int column)
   {
    
-    /* your code here */
+    gameboard[row][column].show();
   }  
 
   /** 
@@ -120,10 +126,17 @@ public class Board
   public String checkForMatch(int row1, int col1, int row2, int col2)
   {
     String msg = "";
-
-     /* your code here */
+    gameboard[row1][col1].show();
+    gameboard[row2][col2].show();
+    System.out.println(toString());
     
-     return msg;
+    if(gameboard[row1][col1].getValue().equals(gameboard[row2][col2].getValue())){
+      msg = "matched";
+    } else{
+      gameboard[row1][col1].hide();
+      gameboard[row2][col2].hide();
+    }
+    return msg;
   }
 
   /** 
@@ -137,8 +150,15 @@ public class Board
   public boolean validateSelection(int row, int col)
   {
 
-    /* your code here */
-
+    if(row > gameboard.length-1){
+      return false;
+    }
+    if(col > gameboard[row].length-1){
+      return false;
+    }
+    if(gameboard[row][col].matched()){
+      return false;
+    }
     return true;
   }
 
